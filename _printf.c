@@ -14,6 +14,8 @@ int _printf(const char *format, ...)
 	int i = 0, j = 0, find_spec = 0;
 	char count = 0;
 
+	specifiers arr[] = {
+	    {'s', Type_s}, {'c', Type_c}, {'%', Type_p}, {'\0', NULL}};
 	va_list args;
 
 	va_start(args, format);
@@ -30,22 +32,20 @@ int _printf(const char *format, ...)
 				{
 					count = count + arr[j].print_func(&args);
 					find_spec = 1;
-					break;
-				}
+					break; }
+
 				j++;
 			}
 			if (!find_spec)
 			{
 				_putchar('%');
 				_putchar(format[i]);
-				count = count + 2;
-			}
+				count = count + 2; }
 		}
 		else
 		{
 			_putchar(format[i]);
-			count++;
-		}
+			count++; }
 		i++;
 	}
 	va_end(args);
