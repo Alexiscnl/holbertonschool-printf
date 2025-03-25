@@ -72,6 +72,26 @@ int Type_d(va_list *args)
 	int num_arr[10];
 	int i = 0;
 
+	if (num == "-2147483648")
+	{
+		char *min = "-2147483648";
+		for (; min[i]; i++)
+		{
+			_putchar(min[i]);
+			count++;
+		}
+		return (count);
+	}
+	if (num == "2147483648")
+	{
+		char *max = "2147483648";
+		for (; max[i]; i++)
+		{
+			_putchar(max[i]);
+			count++;
+		}
+		return (count);
+	}
 	if (num < 0)
 	{
 		_putchar('-');
