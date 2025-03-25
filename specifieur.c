@@ -68,23 +68,31 @@ int Type_d(va_list *args)
 {
 	int num = va_arg(*args, int);
 	int count = 0, j, num_arr[12], i = 0;
-
+	unsigned int posi_num;
 	if (num < 0)
 	{
 		_putchar('-');
 		count++;
-		num = -num; }
-	if (num == 0)
+		posi_num = -num;
+	}
+	else
+	{
+		posi_num = num;
+	}
+	if (posi_num == 0)
 	{
 		_putchar('0');
-		return (1); }
-	while (num > 0)
+		return (1);
+	}
+	while (posi_num > 0)
 	{
-		num_arr[i++] = num % 10;
-		num /= 10; }
+		num_arr[i++] = posi_num % 10;
+		posi_num /= 10;
+	}
 	for (j = i - 1; j >= 0; j--)
 	{
 		_putchar(num_arr[j] + '0');
-		count++; }
+		count++;
+	}
 	return (count);
 }
