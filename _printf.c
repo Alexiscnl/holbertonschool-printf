@@ -4,28 +4,26 @@
 #include <unistd.h>
 #include <stddef.h>
 /**
- * _printf - Produces output according to a format
+ * _printf - Custom printf function that handles certain format specifiers
  * @format: The format string containing format specifiers
  *
- * Return: The number of characters printed (excluding the null byte)
+ * Return: The number of characters printed (excluding the null byte).
  */
 int _printf(const char *format, ...)
 {
 	int i = 0, j = 0, find_spec = 0, count = 0;
-
+	va_list args;
 	specifiers arr[] = {
 	    {'s', Type_s}, {'c', Type_c}, {'%', Type_p}, {'\0', NULL}};
-	va_list args;
 
 	if (!format)
 		return (-1);
 	va_start(args, format);
-	while (format && format[i])
+
+	while (format[i])
 	{
 		if (format[i] == '%' && format[i + 1])
 		{
-			if (format[i + 1] == '\0')
-				return (-1);
 			j = 0;
 			find_spec = 0;
 			i++;
@@ -42,7 +40,7 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				count++;
 				_putchar(format[i]);
-				count++; } }
+				count++; }}
 		else
 		{
 			_putchar(format[i]);
@@ -50,4 +48,3 @@ int _printf(const char *format, ...)
 		i++; }
 	va_end(args);
 	return (count); }
-
