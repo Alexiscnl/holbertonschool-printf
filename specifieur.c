@@ -67,52 +67,24 @@ int Type_mod(va_list *args)
 int Type_d(va_list *args)
 {
 	int num = va_arg(*args, int);
-	int count = 0;
-	int j;
-	int num_arr[10];
-	int i = 0;
+	int count = 0, j, num_arr[12], i = 0;
 
-	if (num == "-2147483648")
-	{
-		char *min = "-2147483648";
-		for (; min[i]; i++)
-		{
-			_putchar(min[i]);
-			count++;
-		}
-		return (count);
-	}
-	if (num == "2147483648")
-	{
-		char *max = "2147483648";
-		for (; max[i]; i++)
-		{
-			_putchar(max[i]);
-			count++;
-		}
-		return (count);
-	}
 	if (num < 0)
 	{
 		_putchar('-');
 		count++;
-		num = -num;
-	}
+		num = -num; }
 	if (num == 0)
 	{
 		_putchar('0');
-		return (1);
-	}
+		return (1); }
 	while (num > 0)
 	{
 		num_arr[i++] = num % 10;
-		num /= 10;
-	}
-
+		num /= 10; }
 	for (j = i - 1; j >= 0; j--)
 	{
 		_putchar(num_arr[j] + '0');
-		count++;
-	}
+		count++; }
 	return (count);
 }
