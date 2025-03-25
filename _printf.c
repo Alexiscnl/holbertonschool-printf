@@ -3,48 +3,50 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stddef.h>
+
 /**
- * _printf - Custom printf function that handles certain format specifiers
+ * _printf - Produces output according to a format
  * @format: The format string containing format specifiers
  *
- * Return: The number of characters printed (excluding the null byte).
+ * Return: The number of characters printed (excluding the null byte)
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, j = 0, find_spec = 0, count = 0;
-	va_list args;
+	int i = 0, j = 0, count = 0, find_spec = 0;
+
 	specifiers arr[] = {
 	    {'s', Type_s}, {'c', Type_c}, {'%', Type_p}, {'\0', NULL}};
+	va_list args;
 
 	if (!format)
 		return (-1);
 	va_start(args, format);
-
-	while (format[i])
+	for (; format && format[i]; i++)
 	{
-		if (format[i] == '%' && format[i + 1])
+		if (format[i] == '%')
 		{
-			j = 0;
+			if (format[i + 1] == '\0')
+			{
+				va_end(args);
+				return (-1); }
 			find_spec = 0;
 			i++;
-			while (arr[j].type)
+			for (j = 0; arr[j].type; j++)
 			{
 				if (format[i] == arr[j].type)
 				{
 					count += arr[j].print_func(&args);
 					find_spec = 1;
-					break; }
-				j++; }
+					break; } }
 			if (!find_spec)
 			{
 				_putchar('%');
 				count++;
 				_putchar(format[i]);
-				count++; }}
+				count++; } }
 		else
 		{
 			_putchar(format[i]);
-			count++; }
-		i++; }
+			count++; } }
 	va_end(args);
 	return (count); }
