@@ -5,9 +5,6 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-int _strlen(const char *s);
-int _strncmp(const char *s1, const char *s2, size_t n);
-char *_strncat(char *dest, char *src, int n);
 int Type_s(va_list *args);
 int Type_c(va_list *args);
 int Type_p(va_list *args);
@@ -20,7 +17,7 @@ int Type_p(va_list *args);
  */
 typedef struct arr_specifiers
 {
-	char type;
+	int type;
 	int (*print_func)(va_list *args);
 } specifiers;
 

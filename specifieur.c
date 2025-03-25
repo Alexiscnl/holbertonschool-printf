@@ -17,7 +17,7 @@ int Type_s(va_list *args)
 	{
 		s = "(null)";
 	}
-	while (s && s[i])
+	while (s[i])
 	{
 		_putchar(s[i]);
 		i++;

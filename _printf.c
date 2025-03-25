@@ -11,18 +11,21 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, j = 0, find_spec = 0;
-	char count = 0;
+	int i = 0, j = 0, find_spec = 0, count = 0;
 
 	specifiers arr[] = {
 	    {'s', Type_s}, {'c', Type_c}, {'%', Type_p}, {'\0', NULL}};
 	va_list args;
 
+	if (!format)
+		return (-1);
 	va_start(args, format);
 	while (format && format[i])
 	{
 		if (format[i] == '%' && format[i + 1])
 		{
+			if (format[i + 1] == '\0')
+				return (-1);
 			j = 0;
 			find_spec = 0;
 			i++;
@@ -30,24 +33,21 @@ int _printf(const char *format, ...)
 			{
 				if (format[i] == arr[j].type)
 				{
-					count = count + arr[j].print_func(&args);
+					count += arr[j].print_func(&args);
 					find_spec = 1;
 					break; }
-
-				j++;
-			}
+				j++; }
 			if (!find_spec)
 			{
 				_putchar('%');
+				count++;
 				_putchar(format[i]);
-				count = count + 2; }
-		}
+				count++; } }
 		else
 		{
 			_putchar(format[i]);
 			count++; }
-		i++;
-	}
+		i++; }
 	va_end(args);
-	return (count);
-}
+	return (count); }
+
