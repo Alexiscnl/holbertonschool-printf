@@ -3,6 +3,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stddef.h>
+#include "specifieur.h"
 
 /**
  * _printf - Produces output according to a format
@@ -14,8 +15,6 @@ int _printf(const char *format, ...)
 {
 	int i = 0, j = 0, count = 0, find_spec = 0;
 
-	specifiers arr[] = {
-	    {'s', Type_s}, {'c', Type_c}, {'%', Type_p}, {'\0', NULL}};
 	va_list args;
 
 	if (!format)
