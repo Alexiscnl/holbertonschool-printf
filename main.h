@@ -23,5 +23,6 @@ typedef struct arr_specifiers
 	char type;
 	int (*print_func)(va_list *args);
 } specifiers;
+extern specifiers arr[];
 
 #endif
