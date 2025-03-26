@@ -1,0 +1,90 @@
+Custom _printf Implementation     _PRINTF(3)
+
+NAME
+       _printf − custom implementation of the standard printf function
+
+SYNOPSIS
+       **#include <stdarg.h>**
+       **#include "main.h"**
+       **#include "specifieur.h"**
+
+       **int _printf(const char *_format_, ...);**
+
+DESCRIPTION
+       The **_printf** function produces output according to a specified format.
+       It works similarly to the standard C library printf function, with
+       custom format specifiers.
+
+PARAMETERS
+       _format_
+              A format string containing normal characters and format
+              specifiers preceded by the '%' symbol.
+
+       _..._  A variable number of arguments corresponding to format
+              specifiers in the format string.
+
+FORMAT SPECIFIERS
+       **%c**  Prints a single character.
+
+       **%s**  Prints a character string. If the string is NULL,
+               prints "(null)".
+
+       **%%**  Prints the percent character '%'.
+
+       **%d**  Prints a signed decimal integer.
+
+       **%i**  Equivalent to %d, prints a signed decimal integer.
+
+SPECIFIERS ARRAY
+       The specifiers array `arr[]` contains associations between
+       format specifiers and their corresponding processing functions:
+
+       • {'s', Type_s}   : Handles string character printing
+       • {'c', Type_c}   : Handles character printing
+       • {'%', Type_mod} : Handles percent symbol printing
+       • {'d', Type_d}   : Handles signed decimal integer printing
+       • {'i', Type_d}   : Identical to 'd', handles signed decimal integers
+
+RETURN VALUE
+       The function returns:
+       • Number of characters printed (excluding null termination byte)
+       • -1 in case of error (NULL format or incomplete specifier)
+
+SPECIAL CASE HANDLING
+       • Negative numbers are correctly managed
+       • Unknown format specifier is printed as-is
+
+EXAMPLES
+       Printing a string:
+              _printf("Hello, %s!", "world");
+       Output:
+              Hello, world!
+
+       Printing an integer:
+              _printf("Number: %d", -42);
+       Output:
+              Number: -42
+
+       Mixed printing:
+              _printf("Character: %c, Number: %d", 'A', 42);
+       Output:
+              Character: A, Number: 42
+
+FILES
+       • main.h : Main header file
+       • specifieur.h : Specifiers structure definition
+       • _printf.c : Main function implementation
+       • specifieur.c : Specifier handling functions
+       • array.c : Specifiers array definition
+
+BUGS
+       • Limited to %c, %s, %d, %i, and %% specifiers
+       • No flag, width, or precision handling
+       • No support for long or short types
+
+AUTHOR
+       Developed by the _printf development team P-Y74 and Alexiscnl.
+
+NOTES
+       This is a simplified printf implementation,
+       suitable for educational and demonstration purposes.
