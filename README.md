@@ -2,16 +2,23 @@
    <img src="https://github.com/user-attachments/assets/7d564981-cb81-43e7-819a-25ffcfc5bd72" width=40% height=40%/>
 </p>
 
-# C - printf
+# C - printf Project
 
-# Custom _printf Implementation
+## Table of Contents
+- [Project Description](#-project-description)
+- [Requirements](#-requirements)
+- [Features](#-features)
+- [Usage](#-usage)
+- [Project Structure](#-project-structure)
+- [Man Page Installation](#-man-page-installation)
+- [Current Limitations](#-current-limitations)
+- [Recommended Development Process](#-recommended-development-process)
+- [Authors](#-authors)
 
 ## 📝 Project Description
-
 This project is a custom implementation of the standard C library `printf` function, developed as part of a learning exercise in low-level programming and system design. The `_printf` function provides formatted output conversion with a subset of standard printf functionality.
 
 ## 🛠 Requirements
-
 ### General
 - **Allowed Editors**: `vi`, `vim`, `emacs`
 - **Compilation Environment**: Ubuntu 20.04 LTS
@@ -40,7 +47,6 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 - `va_arg()`
 
 ## ✨ Features
-
 - Custom implementation of `printf`
 - Supports multiple format specifiers:
   - `%c`: Character printing
@@ -49,40 +55,70 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
   - `%%`: Percent sign printing
 
 ## 🚀 Usage
-
 ### Test file
 <img src="https://github.com/user-attachments/assets/b205c6bc-5388-4c28-beca-acefb8441510" width=40% height=40%> 
 
 ### Output
 <img src="https://github.com/user-attachments/assets/32c6fab5-6f6f-48a9-b8f8-a39144a4a15b">
 
-
 ## 📦 Project Structure
-
 - `_printf.c`: Main printf implementation
 - `specifieur.c`: Format specifier handler functions
 - `array.c`: Specifier-to-function mapping
 - `main.h`: Header file with function prototypes
 - `specifieur.h`: Specifier struct definition
 
-## 🔍 Current Limitations
+## 📖 Man Page Installation
+### Prerequisites
+- Git
+- Superuser (root) access
+- Basic terminal knowledge
 
+### Installation Steps
+#### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/your-repository.git
+cd your-repository
+```
+
+#### 2. Prepare the Installation Script
+```bash
+chmod +x install_man_page.sh
+```
+
+#### 3. Run the Installation Script
+```bash
+sudo ./install_man_page.sh
+```
+
+#### Verifying Installation
+```bash
+man _printf
+```
+
+### Troubleshooting
+- Ensure necessary permissions
+- Verify script location
+- Check `mandb` installation
+
+### Uninstallation
+```bash
+sudo rm /usr/local/share/man/man3/man_3_printf.3
+sudo mandb
+```
+
+## 🔍 Current Limitations
 - Limited format specifier support
 - No floating-point number handling
 - Basic error management
 
 ## 📋 Recommended Development Process
-
 1. Implement basic functionality
 2. Create thorough test cases
 3. Handle edge cases
 4. Optimize and refactor
 5. Ensure Betty style compliance
 
-
-
 ## 👥 Authors
-
 - [Alexiscnl](https://github.com/Alexiscnl)
 - [P-Y74](https://github.com/P-Y74)
-
