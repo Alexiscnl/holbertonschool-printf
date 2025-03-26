@@ -13,6 +13,7 @@
 - [Man Page Installation](#-man-page-installation)
 - [Current Limitations](#-current-limitations)
 - [Recommended Development Process](#-recommended-development-process)
+- [Flowchart](#-flowchart)
 - [Authors](#-authors)
 
 ## 📝 Project Description
@@ -118,6 +119,10 @@ sudo mandb
 3. Handle edge cases
 4. Optimize and refactor
 5. Ensure Betty style compliance
+
+## 🔄 Flowchart
+
+<img src="https://github.com/user-attachments/assets/507f8d16-dbd0-4d52-8e23-a0946340ea2b">
 
 ## 👥 Authors
 - [Alexiscnl](https://github.com/Alexiscnl)
