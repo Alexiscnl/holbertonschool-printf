@@ -122,7 +122,7 @@ sudo mandb
 
 ## 🔄 Flowchart
 
-<img src="https://github.com/user-attachments/assets/c032a2e0-4bc8-4c39-9c92-5928148a094f">
+<img src="https://github.com/user-attachments/assets/d88947c7-7990-43fc-a629-602595610d69">
 
 ## 👥 Authors
 - [Alexiscnl](https://github.com/Alexiscnl)
